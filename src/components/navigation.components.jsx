@@ -6,12 +6,8 @@ import { TitleLg, TitleMd, TitleSm } from "./common.components"
 
 
 
-function addTwo(x,y){
-    return x + y;
-}
-
 export const Nav = () => {
-    const [navOpen,setNavOpen] = useState()
+    const [,setNavOpen] = useState()
 
 
 
