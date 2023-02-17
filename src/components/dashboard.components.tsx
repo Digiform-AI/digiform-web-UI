@@ -6,9 +6,7 @@ import { FileUploader } from "react-drag-drop-files";
  */
 export const FileDragNDrop = () => {
     const fileUploadTypes = ["PDF"];
-
     const [file, setFile] = useState<File | null>(null);
-
     // this function can be changed to actually upload the file to the DB as needed
     const onFileUpload = (file: File | null) => { setFile(file) };
 
