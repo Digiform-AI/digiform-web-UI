@@ -12,7 +12,7 @@ import { Samples } from "../samples";
  */
 const Page = ({children}:{children:any}) => {
     return (
-        <div className="bg-gray-800 min-h-screen relative">
+        <div className="dark:bg-gray-800 bg-gray-200 min-h-screen relative">
             <Nav/>
             {children}
         </div>
