@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FileUploader } from "react-drag-drop-files";
+// import { FileUploader } from "react-drag-drop-files";
 
 /**
  * Drag and Drop component for uploading files. Also supports just clicking anywhere in the area.
@@ -12,11 +12,11 @@ export const FileDragNDrop = () => {
 
     return (
         <div className = "DragNDrop">
-            <FileUploader
+            {/* <FileUploader
                 multiple = {false}
                 handleChange = {onFileUpload}
                 types = {fileUploadTypes}
-            />
+            /> */}
             
             {/*Test line to make sure the file uploads correctly*/}
             <p>{file ? `File Name: ${file.name} | File Size: ${file.size}` : "No File Uploaded Yet"}</p>
