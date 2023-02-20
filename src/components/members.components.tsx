@@ -33,6 +33,19 @@ export interface fakeMember {
 }
 
 
+export const MemberCardSm = ({member,...rest}:{member:fakeMember}) => {
+    return (
+        <div className="bg-slate-400 p-4 w-[30%] my-4 rounded flex">
+            <img src={`https://robohash.org/${member.first}`} className="rounded-xl bg-white w-1/3" />
+            <div className="px-2">
+                <p className="text-2xl font-light">{member.first} {member.last}</p>
+                <p className="lowercase">{member.first}{member.last}@gmail.com</p>
+            </div>
+        </div>
+    )
+}
+
+
 export const ItemListMemberRow = ({item,...rest}:{item:fakeMember}) => {
 
     const [icon,setIcon] = useState()
@@ -82,7 +95,8 @@ export const MemberDataModal = ({className,item,toggleModal}:{className:String,i
                 <div className="h-full overflow-scroll">
                     <div className="flex w-4/5 mx-auto my-8">
                         <div>
-                            <img src="https://i.pravatar.cc/300" className="rounded" />
+                            <img src={`https://robohash.org/${item.first}`} className="rounded-xl bg-white" />
+                            {/* <img src="https://i.pravatar.cc/300" className="rounded" /> */}
                         </div>
                         <div className="px-6 w-full">
                             <p className="text-6xl font-lato">{item.first} {item.last}</p>

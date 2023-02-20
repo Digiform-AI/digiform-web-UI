@@ -89,7 +89,7 @@ export const FileCreator = () => {
                     >
                         <div className="mx-auto my-auto">
                             <Icon icon="material-symbols:add-box-outline-rounded" width="120" className="text-slate-300 mx-auto"/>
-                            <p className="text-slate-300 font-bold text-lg">click to add a file, or simply drag and drop</p>
+                            <p className="text-slate-300 font-bold text-lg w-2/3 mx-auto text-center">click to add a file, drag and drop, or start adding keys on the left to create a file</p>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ export const FileEditor = () => {
                     </div>
 
                     <div className="w-full px-4 h-[80vh]">
-                        <Viewer fileUrl="/assets/testing.pdf" />
+                        <Viewer fileUrl="https://neuro-exed-images.s3.amazonaws.com/tst/testing.pdf" />
                     </div>
 
                     <div>
@@ -192,7 +192,7 @@ export const FileViewer = () => {
                 </div>
 
                 <div className="w-full px-4 h-[80vh]">
-                    <Viewer fileUrl="/assets/testing.pdf" />
+                    <Viewer fileUrl="https://neuro-exed-images.s3.amazonaws.com/tst/testing.pdf" />
                 </div>
 
                 <div>

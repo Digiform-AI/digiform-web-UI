@@ -5,6 +5,7 @@ import {
 import { useRouteError } from "react-router-dom";
 import { FileCreator, FileEditor, FileViewer } from "../components/file.components";
 import { Nav } from "../components/navigation.components";
+import MemberDirectory from "../pages/memberDirectory.page";
 import FileDirectory from "../pages/fileDirectory.page";
 import { Samples } from "../samples";
 
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
     },
     {
       path: "/customers",
-      element: <Page><div>customers page</div></Page>,
+      element: <Page><MemberDirectory /></Page>,
       errorElement:<ErrorPage />
     },
     {

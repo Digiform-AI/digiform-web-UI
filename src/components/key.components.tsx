@@ -55,19 +55,22 @@ export const AddKeyModal = ({className,item,toggleModal}:{className:String,item:
                     }}
                 />
                 <TitleXl className="p-4 w-full bg-slate-700">Add New Key</TitleXl>
-                <div className="w-3/5 mx-auto flex h-full">
-                    <div className="flex justify-between w-full my-8">
-                        <LabeledInput
-                            label="Key Name"
-                            state={name}
-                            setState={setName}
-                        />
-                        <LabeledInput
-                            label="Key Type"
-                            state={type}
-                            setState={setType}
-                        />
+                <div>
+                    <div className="w-2/5 mx-auto flex h-full">
+                        <div className="flex justify-between w-full my-8">
+                            <LabeledInput
+                                label="Key Name"
+                                state={name}
+                                setState={setName}
+                            />
+                            <LabeledInput
+                                label="Key Type"
+                                state={type}
+                                setState={setType}
+                            />
+                        </div>
                     </div>
+                    <button className="border-0 rounded bg-blue-200 p-4 text-lg mx-auto font-bold block">confirm</button>
                 </div>
             </div>
         </div>
