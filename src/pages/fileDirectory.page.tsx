@@ -10,15 +10,14 @@ import { fakeMember, fakeMemberData, ItemListMemberRow, MemberDataModal } from "
 import { Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { FolderIcon } from "../components/folder.components";
-import { useNavigate, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 
 
 
-const FileEditor = () => {
+export const FileEditor = () => {
     const params = useParams();
     const navigate = useNavigate();
 
-    console.log(params.file_name);
 
     const [members,setMembers] = useState(Array<fakeMember>);
     const [groups,setGroups] = useState(Array<fakeGroup>);
@@ -31,6 +30,14 @@ const FileEditor = () => {
 
     return (
         <div className="w-4/5 mx-auto">
+            <p 
+                className="text-white" 
+                onClick={()=> {
+                    navigate('/files')
+                }}
+            >
+                baby coome back
+            </p>
 
             <div className="flex mt-8">
                 <div className="w-full sm:w-1/2 md:w-1/5 transition-width rounded-md overflow-hidden">
@@ -40,7 +47,7 @@ const FileEditor = () => {
                 </div>
 
                 <div className="w-full px-4 h-[80vh]">
-                    <Viewer fileUrl="./assets/testing.pdf" />
+                    <Viewer fileUrl="./assets/test.pdf" />
                 </div>
 
                 <div>
@@ -53,52 +60,52 @@ const FileEditor = () => {
 }
 
 
+const exampleFolder = {
+    name:"Addendum"
+}
+
 /** File Direrctory Page
  * 
  * @returns the rendered file directory page
  */
 const FileDirectory = () => {
+    const navigate = useNavigate();
+    const params = useParams();
+
+    console.log(params.file_name?'o':'n')
 
     return (
         <div className="pt-10">
             <div className="w-4/5 bg-slate-100 dark:bg-slate-700 mx-auto p-4 rounded">
                 <TitleXl>File Directory</TitleXl>
             </div>
-            <br/>
-            <div className="w-4/5 mx-auto p-4 rounded">
-                <TitleXl className="mb-4">Company Files</TitleXl>
-                <div className="flex flex-wrap justify-between p-4">
-                    <FolderIcon 
-                        name="Addendum"
-                    />
-                    <FolderIcon 
-                        name="Contract"
-                    />
-                    <FolderIcon 
-                        name="Cirriculum"
-                    />
-                    <FolderIcon 
-                        name="File"
-                    />
-                    <FolderIcon 
-                        name="Example"
-                    />
-                    <FolderIcon 
-                        name="Test"
-                    />
-                    <FolderIcon 
-                        name="Agreement"
-                    />
-                    <FolderIcon 
-                        name="FolderIcon"
-                    />
-                </div>
-            </div>
+            {
+                params.file_name?(
+                    <Outlet />
+                ):(
+                    <>
+                        
+                        <br/>
+                        <div className="w-4/5 mx-auto p-4 rounded">
+                            <TitleXl className="mb-4">Company Files</TitleXl>
+                            <div className="flex flex-wrap justify-between p-4">
+                                <FolderIcon 
+                                    folder={exampleFolder}
+                                    onClick={()=>{
+                                        console.log('nav')
+                                        navigate(exampleFolder.name)
+                                    }}
+                                />
+                            </div>
+                        </div>
 
-            <div className="w-4/5 mx-auto p-4 rounded">
-                <TitleXl>Assigned Files</TitleXl>
-                <SubTitleLg>FolderIcons of an assigned file and associated members</SubTitleLg>
-            </div>
+                        <div className="w-4/5 mx-auto p-4 rounded">
+                            <TitleXl>Assigned Files</TitleXl>
+                            <SubTitleLg>FolderIcons of an assigned file and associated members</SubTitleLg>
+                        </div>
+                    </>
+                )
+            }
         </div>
     )
 }

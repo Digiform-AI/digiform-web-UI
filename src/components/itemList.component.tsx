@@ -70,7 +70,6 @@ export const ItemList = ({className,title,items,AddItemModal,ViewItemModal,ItemC
                                     item={item} 
                                     className="p-1 hover:scale-105 transition-all transform cursor-pointer"
                                     onClick={() => {
-                                        console.log('clickster')
                                         setViewItemState(item)
                                         console.log(item)
                                     }}
