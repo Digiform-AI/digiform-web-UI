@@ -7,7 +7,7 @@ import React from "react"
  * @param rest any other functionality being passed to this component
  * @returns 
  */
-export const TitleXl = ({className, children, ...rest}:{className?:string; children:string}) => {
+export const TitleXl = ({className, children, ...rest}:{className?:string; children:any}) => {
     return (
         <p className={`${className} font-lato text-white text-4xl`} {...rest}>
             {children}

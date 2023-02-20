@@ -3,7 +3,7 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 import { useRouteError } from "react-router-dom";
-import { FileEditor, FileViewer } from "../components/file.components";
+import { FileCreator, FileEditor, FileViewer } from "../components/file.components";
 import { Nav } from "../components/navigation.components";
 import FileDirectory from "../pages/fileDirectory.page";
 import { Samples } from "../samples";
@@ -46,6 +46,10 @@ export const router = createBrowserRouter([
       element: <Page><FileDirectory/></Page>,
       errorElement:<ErrorPage />,
       children:[
+        {
+          path: "/files/:add/",
+          element: <FileCreator />,
+        },
         {
           path: "/files/view/:file_name",
           element: <FileViewer />,

@@ -1,36 +1,60 @@
 import { Icon } from "@iconify/react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { TitleMd, TitleXl } from "./common.components"
 
 //JUNK DATA - DELETABLE
 export const fakeMemberData = [
     {
         first:'Doug',
-        last:'Flenderson'
+        last:'Flenderson',
+        status:3
     },
     {
         first:'Steve',
-        last:'Venhanderbilt'
+        last:'Venhanderbilt',
+        status:2
     },
     {
         first:'Mary',
-        last:'Commy'
+        last:'Commy',
+        status:3
     },
     {
         first:'John',
-        last:'Jonjonson'
+        last:'Jonjonson',
+        status:1
     }
 ]
 
 export interface fakeMember {
     first:String,
-    last:String
+    last:String,
+    status:number
 }
 
 
 export const ItemListMemberRow = ({item,...rest}:{item:fakeMember}) => {
+
+    const [icon,setIcon] = useState()
+
+    //success
+    if(item.status === 1){
+
+    }
+    //error
+    else if(item.status === 2){
+
+    }
+    //incomplete
+    else {
+
+    }
+
     return (
-        <p {...rest}>{item.first} {item.last}</p>
+        <div className="flex">
+            <p {...rest}>{item.first} {item.last}</p> 
+            <Icon icon=""/>
+        </div>
     )
 }
 
