@@ -70,3 +70,13 @@ export const TitleXs = ({className, children, ...rest}:{className:string; childr
         </p>
     );
 }
+
+
+
+export const SubTitleLg = ({className, children, ...rest}:{className?:string; children:string}) => {
+    return (
+        <p className={`${className} font-lato  text-gray-400 text-lg`} {...rest}>
+            {children}
+        </p>
+    );
+}

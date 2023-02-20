@@ -43,7 +43,13 @@ export const router = createBrowserRouter([
     {
       path: "/files",
       element: <Page><FileDirectory/></Page>,
-      errorElement:<ErrorPage />
+      errorElement:<ErrorPage />,
+      children:[
+        {
+            path: "/files/:file_name",
+            element: <></>,
+        }
+      ],
     },
     {
       path: "/customers",
