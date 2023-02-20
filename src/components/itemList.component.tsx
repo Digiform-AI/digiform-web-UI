@@ -4,13 +4,14 @@ import { TitleMd } from "../components/common.components";
 
 interface ItemListParams {
     className?:String|null,
+    title:string,
     items:any,
     AddItemModal:any,
     ViewItemModal:any,
     ItemComponent:any,
 }
 
-export const ItemList = ({className,items,AddItemModal,ViewItemModal,ItemComponent}:ItemListParams) => {
+export const ItemList = ({className,title,items,AddItemModal,ViewItemModal,ItemComponent}:ItemListParams) => {
     const [displaySearch,setDisplaySearch] = useState(false);
 
     // view item control state
@@ -28,7 +29,7 @@ export const ItemList = ({className,items,AddItemModal,ViewItemModal,ItemCompone
 
             <div className={`rounded bg-gray-400 ${className}`}>
                 <div className="bg-gray-700 text-white flex justify-between p-2">
-                    <TitleMd>Members</TitleMd>
+                    <TitleMd>{title}</TitleMd>
 
                     <div className="flex">
                         <Icon 

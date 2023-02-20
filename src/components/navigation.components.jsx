@@ -14,7 +14,7 @@ export const Nav = () => {
 
     return (
         <>
-            <Icon icon="fa:navicon" className="absolute top-2 left-2 text-white" width="32" onClick={() => setNavOpen(true)}/>
+            <Icon icon="fa:navicon" className="absolute top-4 left-4 text-white" width="32" onClick={() => setNavOpen(true)}/>
             <div className={`z-1 absolute top-0 left-0 h-full bg-slate-400 bg-opacity-10 ${navOpen?'w-full':'w-0'}`} onClick={()=>setNavOpen()}></div>
 
             <nav className={`z-[150] bg-gray-700 h-screen w-1/4 p-4 absolute transition-all transform ${navOpen?'':'-translate-x-full'}`}>

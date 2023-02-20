@@ -1,4 +1,6 @@
+import { Icon } from "@iconify/react"
 import { useEffect } from "react"
+import { TitleMd, TitleXl } from "./common.components"
 
 //JUNK DATA - DELETABLE
 export const fakeMemberData = [
@@ -32,21 +34,74 @@ export const ItemListMemberRow = ({item,...rest}:{item:fakeMember}) => {
     )
 }
 
+/** Modal that renders to give context on a member and their associated forms
+ * 
+ * @param className list of classes to add to this component 
+ * @param item the set of data describing the member to render 
+ * @param toggleModal a state mutator from the parent that can close this modal
+ * @returns a rendered modal describing a member
+ */
 export const MemberDataModal = ({className,item,toggleModal}:{className:String,item:any|null,toggleModal:any}) => {
-
-    useEffect(() => {
-        console.log(item)
-    },[])
 
     return (
         <div className={`absolute top-0 left-0 z-[5000] w-full h-full p-10 mx-auto backdrop-blur-md ${className}`}>
-            <div className="w-4/5 bg-gray-300 h-4/5 mx-auto my-auto rounded-2xl relative">
-                <p
-                    className="absolute top-2 right-4"
+            <div className="w-4/5 bg-gray-300 h-4/5 mx-auto my-auto rounded-2xl relative overflow-hidden">
+                <Icon 
+                    icon="ph:x-circle-bold" 
+                    className="absolute top-2 right-4 text-white"
+                    width="48"
                     onClick={() => {
                         toggleModal(null)
                     }}
-                >X</p>
+                />
+                <TitleXl className="p-4 w-full bg-slate-700">Member Data</TitleXl>
+                <div className="h-full overflow-scroll">
+                    <div className="flex w-4/5 mx-auto my-8">
+                        <div>
+                            <img src="https://i.pravatar.cc/300" className="rounded" />
+                        </div>
+                        <div className="px-6 w-full">
+                            <p className="text-6xl font-lato">{item.first} {item.last}</p>
+                            <p className="text-3xl font-light my-4 font-lato">Member of COMPANY_NAME</p>
+                            <hr className="border-gray-500 border-2"/>
+                            <div className="flex justify-between">
+                                <p className="text-3xl text-gray-700 my-4 font-lato">Email</p>
+                                <p className="text-3xl font-light my-4 font-lato">{item.first}{item.last}@gmail.com</p>
+                            </div>
+                            <div className="flex justify-between">
+                                <p className="text-3xl text-gray-700 my-4 font-lato">Phone</p>
+                                <p className="text-3xl font-light my-4 font-lato">(203)378-5858</p>
+                            </div>
+                        </div>
+                    </div>
+                    {/* TABLE - SOOON TO BE SEPARATED INTO COMPONENT */}
+                    <div className="border border-slate-500 w-4/5 mx-auto rounded overflow-clip">
+                        <div className="bg-slate-600 flex justify-evenly p-2">
+                            <p className="text-white text-xl font-bold font-lato w-1/4 text-center">File</p>
+                            <p className="text-white text-xl font-bold font-lato border-l-2 w-1/4 text-center">Assigned On</p>
+                            <p className="text-white text-xl font-bold font-lato border-l-2 w-1/4 text-center">Completion</p>
+                            <p className="text-white text-xl font-bold font-lato border-l-2 w-1/4 text-center">Completed On</p>
+                        </div>
+                        <div className="p-2 flex justify-evenly bg-white">
+                            <p className="font-lato text-lg underline w-1/4 overflow-ellipsis text-center cursor-pointer">document.pdf</p>
+                            <p className="font-lato text-lg w-1/4 overflow-ellipsis text-center">June 6, 2022</p>
+                            <Icon icon="emojione:white-heavy-check-mark" className="font-lato text-lg w-1/4 overflow-ellipsis text-center" width="24"/>
+                            <p className="font-lato text-lg w-1/4 overflow-ellipsis text-center">June 10, 2022</p>
+                        </div>
+                        <div className="p-2 flex justify-evenly border-t bg-blue-100">
+                            <p className="font-lato text-lg underline w-1/4 overflow-ellipsis text-center cursor-pointer">example.pdf</p>
+                            <p className="font-lato text-lg w-1/4 overflow-ellipsis text-center">June 8, 2022</p>
+                            <Icon icon="ph:x-circle-fill" className="font-lato text-lg w-1/4 overflow-ellipsis text-red-500 text-center" width="26"/>
+                            <p className="font-lato text-lg w-1/4 overflow-ellipsis text-center text-blue-500 underline cursor-pointer">send reminder</p>
+                        </div>
+                        <div className="p-2 flex justify-evenly bg-white">
+                            <p className="font-lato text-lg underline w-1/4 overflow-ellipsis text-center cursor-pointer">contract.pdf</p>
+                            <p className="font-lato text-lg w-1/4 overflow-ellipsis text-center">June 12, 2022</p>
+                            <Icon icon="uis:exclamation-circle" className="w-1/4 text-yellow-500" width="26"/>
+                            <p className="font-lato text-lg w-1/4 overflow-ellipsis text-center text-blue-500 underline cursor-pointer">troubleshoot</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

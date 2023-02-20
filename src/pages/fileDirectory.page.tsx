@@ -7,7 +7,6 @@ import { fakeMember, fakeMemberData, ItemListMemberRow, MemberDataModal } from "
 
 
 //PDF GEN FILES
-import { Worker } from '@react-pdf-viewer/core';
 import { Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 
@@ -35,15 +34,13 @@ const FileDirectory = () => {
 
                 <div className="flex mt-8">
                     <div className="w-full sm:w-1/2 md:w-1/5 transition-width rounded-md overflow-hidden">
-                        <ItemList items={members} AddItemModal={null} ViewItemModal={MemberDataModal} ItemComponent={ItemListMemberRow}/>
-                        <ItemList className="my-8" items={groups} AddItemModal={null} ViewItemModal={null} ItemComponent={ItemListGroupRow}/>
+                        <ItemList title="Members" items={members} AddItemModal={null} ViewItemModal={MemberDataModal} ItemComponent={ItemListMemberRow}/>
+                        <ItemList title="Groups" className="my-8" items={groups} AddItemModal={null} ViewItemModal={null} ItemComponent={ItemListGroupRow}/>
 
                     </div>
 
-                    <div className="w-2/3 p-4">
-                        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
-                            <Viewer fileUrl="./assets/test.pdf" />
-                        </Worker>
+                    <div className="w-full px-4 h-[80vh]">
+                        <Viewer fileUrl="./assets/testing.pdf" />
                     </div>
 
                     <div>
