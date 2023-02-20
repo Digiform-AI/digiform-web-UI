@@ -3,14 +3,8 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { TitleLg, TitleMd, TitleSm } from "./common.components"
 
-
-
-
 export const Nav = () => {
     const [navOpen,setNavOpen] = useState()
-
-
-
 
     return (
         <>
@@ -21,7 +15,6 @@ export const Nav = () => {
                 <TitleLg>DigiForm</TitleLg>
                 <Icon icon="material-symbols:arrow-circle-left-outline-rounded" className="absolute top-2 right-2 text-white" width="32" onClick={() => setNavOpen()}/>
                 
-
                 <div>
                     <TitleMd>Directory</TitleMd>
                     <div className="hover:bg-gray-300">
@@ -45,8 +38,7 @@ export const Nav = () => {
                         </Link>
                     </div>
                 </div>
-            </nav>
-            
+            </nav> 
         </>
     )
 }

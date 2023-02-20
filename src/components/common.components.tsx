@@ -80,3 +80,13 @@ export const SubTitleLg = ({className, children, ...rest}:{className?:string; ch
         </p>
     );
 }
+
+
+export const LabeledInput = ({className,label,state,setState}:{className?:string,label:string,state:any,setState:any}) => {
+    return (
+        <div className={`bg-slate-400 rounded h-min p-4 ${className}`}>
+            <p className="text-lg font-lato">{label}</p>
+            <input value={state} onChange={(e)=>setState(e.target.value)} className="rounded"/>
+        </div>
+    )
+}

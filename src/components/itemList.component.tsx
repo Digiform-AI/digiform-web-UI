@@ -16,6 +16,7 @@ export const ItemList = ({className,title,items,AddItemModal,ViewItemModal,ItemC
 
     // view item control state
     const [viewItemState,setViewItemState] = useState(null);
+    const [addItemState,setAddItemState] = useState(false);
     
     return (
         <>
@@ -23,6 +24,13 @@ export const ItemList = ({className,title,items,AddItemModal,ViewItemModal,ItemC
                 viewItemState?
                     ViewItemModal?
                         <ViewItemModal className={` ${viewItemState?'block':'hidden'}`} item={viewItemState} toggleModal={setViewItemState} />
+                    :<></>
+                :<></>
+            }
+            {
+                addItemState?
+                    AddItemModal?
+                        <AddItemModal className={` ${addItemState?'block':'hidden'}`} item={addItemState} toggleModal={setAddItemState} />
                     :<></>
                 :<></>
             }
@@ -46,7 +54,7 @@ export const ItemList = ({className,title,items,AddItemModal,ViewItemModal,ItemC
                             width="22" 
                             className="my-auto hover:scale-110 transition-transform transform cursor-pointer"
                             onClick={()=>{
-                                console.log("show me the modal");
+                                setAddItemState(true);
                             }}
                         />
                     </div>
@@ -71,7 +79,6 @@ export const ItemList = ({className,title,items,AddItemModal,ViewItemModal,ItemC
                                     className="p-1 hover:scale-105 transition-all transform cursor-pointer"
                                     onClick={() => {
                                         setViewItemState(item)
-                                        console.log(item)
                                     }}
                                 />
                             )
