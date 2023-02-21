@@ -19,15 +19,15 @@ export interface key {
 
 export const fakeKeyData = [
     {
-        name:"First Name",
+        name:"Key",
         type:"string"
     },
     {
-        name:"Last Name",
+        name:"test",
         type:"string"
     },
     {
-        name:"Birthday",
+        name:"value",
         type:"string"
     }
 ]
