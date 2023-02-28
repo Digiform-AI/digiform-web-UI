@@ -16,12 +16,27 @@ export const fakeMemberData = [
     },
     {
         first:'Mary',
-        last:'Commy',
+        last:'Commiera',
         status:3
     },
     {
         first:'John',
         last:'Jonjonson',
+        status:1
+    },
+    {
+        first:'Paul',
+        last:'Vanderbilt',
+        status:1
+    },
+    {
+        first:'Steve',
+        last:'Sanders',
+        status:1
+    },
+    {
+        first:'Susie',
+        last:'Fuster',
         status:1
     }
 ]
@@ -34,9 +49,14 @@ export interface fakeMember {
 
 
 export const MemberCardSm = ({member,...rest}:{member:fakeMember}) => {
+    const [viewModal,setViewModal] = useState()
+
+
     return (
-        <div className="bg-slate-400 p-4 w-[30%] my-4 rounded flex">
-            <img src={`https://robohash.org/${member.first}`} className="rounded-xl bg-white w-1/3" />
+        <div className="bg-slate-400 p-4 md:w-[40%] min-w-[400px] my-4 rounded flex" >
+            {/* <img src={`https://robohash.org/${member.first}`} className="rounded-xl bg-white w-1/3" /> */}
+            <img src={`https://eu.ui-avatars.com/api/?name=${member.first}+${member.last}&size=150`} className="rounded-xl bg-white w-1/4" />
+            
             <div className="px-2">
                 <p className="text-2xl font-light">{member.first} {member.last}</p>
                 <p className="lowercase">{member.first}{member.last}@gmail.com</p>

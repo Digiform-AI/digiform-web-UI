@@ -8,6 +8,7 @@ import { Nav } from "../components/navigation.components";
 import MemberDirectory from "../pages/memberDirectory.page";
 import FileDirectory from "../pages/fileDirectory.page";
 import { Samples } from "../samples";
+import Home from "../pages/home.page";
 
 
 /**Page Wrapper
@@ -39,7 +40,7 @@ export const ErrorPage = () => {
 export const router = createBrowserRouter([
     {
       path: "/",
-      element: <Page><div>Home page</div></Page>,
+      element: <Page><Home /></Page>,
       errorElement:<ErrorPage />
     },
     {
@@ -64,11 +65,6 @@ export const router = createBrowserRouter([
     {
       path: "/customers",
       element: <Page><MemberDirectory /></Page>,
-      errorElement:<ErrorPage />
-    },
-    {
-      path: "/examples",
-      element: <Page><Samples /></Page>,
       errorElement:<ErrorPage />
     },
 ]);

@@ -62,22 +62,6 @@ export const FileCreator = () => {
                             console.log(ev.dataTransfer)
                             console.log(ev.dataTransfer.files)
                             console.log(ev.dataTransfer.items[1])
-                            // if (ev.dataTransfer.items) {
-                            //   // Use DataTransferItemList interface to access the file(s)
-                            //   [...ev.dataTransfer.items].forEach((item, i) => {
-                            //     // If dropped items aren't files, reject them
-                            //     if (item.kind === 'file') {
-                            //       const file = item.getAsFile();
-                            //       console.log(`… file[${i}].name = ${file.name}`);
-                            //     }
-                            //   });
-                            // } 
-                            // else {
-                            //   // Use DataTransfer interface to access the file(s)
-                            //   [...ev.dataTransfer.files].forEach((file, i) => {
-                            //     console.log(`… file[${i}].name = ${file.name}`);
-                            //   });
-                            // }
                         }}
                         onDragOver={(ev)=>{
                             console.log('File(s) in drop zone');

@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react"
+import { getAuth, signOut } from "firebase/auth"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { TitleLg, TitleMd, TitleSm } from "./common.components"
@@ -32,11 +33,20 @@ export const Nav = () => {
                             <TitleSm >Customers</TitleSm>
                         </Link>
                     </div>
-                    <div className="hover:bg-gray-300">
-                        <Link to="/examples" onClick={()=>setNavOpen()}>
-                            <TitleSm >Samples</TitleSm>
-                        </Link>
-                    </div>
+                </div>
+
+
+                <div className="absolute bottom-0 py-4 text-white flex hover:underline">
+                    <button
+                        onClick={()=>{
+                            const auth = getAuth();
+                            signOut(auth).then(() => {
+                                console.log("signed out user")
+                            }).catch((error) => {
+                                console.log("sign out error")
+                            });
+                        }}
+                    >Sign Out</button> <Icon icon="uil:sign-out-alt" className="my-auto ml-2" />
                 </div>
             </nav> 
         </>
