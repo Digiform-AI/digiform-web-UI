@@ -2,20 +2,16 @@
 //JUNK DATA - DELETABLE
 export const fakeGroupData = [
     {
-        name:'Grup 1',
-        memberCount:1
+        name:'Dev Team',
+        memberCount:12
     },
     {
-        name:'Stup 2',
-        memberCount:17
+        name:'QA',
+        memberCount:7
     },
     {
-        name:'Drup 3',
-        memberCount:69
-    },
-    {
-        name:'Crup 1',
-        memberCount:420
+        name:'Execs',
+        memberCount:6
     }
 ]
 

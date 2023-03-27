@@ -30,17 +30,18 @@ const app = initializeApp(firebaseConfig);
 
 const App = () => {
   const auth = getAuth(app);
-  console.log(auth)
   const [loggedIn,setLoggedIn] = useState(false)
   const [loading,setLoading] = useState(true)
 
   onAuthStateChanged(auth, user => {
+    setLoading(true)
     if (user) {
       setLoggedIn(true)
       setLoading(false)
     } 
     else {
       setLoggedIn(false)
+      setLoading(false)
     }
   })
 
@@ -61,7 +62,6 @@ const App = () => {
               ):(
                 <Login />
               )
-
             }
           </>
         )
