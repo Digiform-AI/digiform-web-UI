@@ -20,17 +20,27 @@ export const Nav = () => {
                     <TitleMd>Directory</TitleMd>
                     <div className="hover:bg-gray-300">
                         <Link to="/" onClick={()=>setNavOpen()}>
-                            <TitleSm >Home</TitleSm>
+                            <TitleSm>Home</TitleSm>
                         </Link>
                     </div>
                     <div className="hover:bg-gray-300">
                         <Link to="/files" onClick={()=>setNavOpen()}>
-                            <TitleSm >Files</TitleSm>
+                            <TitleSm>Files</TitleSm>
                         </Link>
                     </div>
                     <div className="hover:bg-gray-300">
                         <Link to="/customers" onClick={()=>setNavOpen()}>
-                            <TitleSm >Customers</TitleSm>
+                            <TitleSm>Members</TitleSm>
+                        </Link>
+                    </div>
+                    <div className="hover:bg-gray-300">
+                        <Link to="/groups" onClick={()=>setNavOpen()}>
+                            <TitleSm>Groups</TitleSm>
+                        </Link>
+                    </div>
+                    <div className="hover:bg-gray-300">
+                        <Link to="/assigned-files" onClick={()=>setNavOpen()}>
+                            <TitleSm>Assigned Files</TitleSm>
                         </Link>
                     </div>
                 </div>

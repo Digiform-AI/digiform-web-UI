@@ -47,34 +47,22 @@ const Home = () => {
                                 <Icon icon="mdi:alert-circle" className="rounded text-red-500"  width="30"/>
                                 <p className="ml-2 text-white my-auto hover:underline cursor-pointer font-lato">An error has occured processing document 'AEF Contract 2/27'</p>
                             </div>
-                            {/* <div className="flex mt-2 bg-slate-500 p-2 border-b-2">
-                                <Icon icon="mdi:alert-circle" className="bg-slate-200 rounded text-red-500"  width="30"/>
-                                <p className="ml-2 text-white my-auto hover:underline cursor-pointer font-lato">You have a document 12 days late!</p>
-                            </div>
-                            <div className="flex  bg-slate-500 p-2 border-b-2">
-                                <Icon icon="mdi:bell-alert" className="bg-slate-200 rounded text-yellow-400"  width="30"/>
-                                <p className="ml-2 text-white my-auto hover:underline cursor-pointer font-lato">You've been reminded to complete a document</p>
-                            </div>
-                            <div className="flex  bg-slate-500 p-2 ">
-                                <Icon icon="mdi:alert-circle" className="bg-slate-200 rounded text-red-500"  width="30"/>
-                                <p className="ml-2 text-white my-auto hover:underline cursor-pointer font-lato">A document of yours has an invalid input</p>
-                            </div> */}
                         </div>
                     </div>
                     <div className="bg-slate-100 dark:bg-slate-700 mx-auto p-4 rounded md:w-[48%]">
                         <TitleLg>Create a Document</TitleLg>
                         <br/>
                         <div className="flex justify-between">
-                            <div className="border-2 border-gray-400 rounded flex flex-col w-[45%] hover:bg-slate-600 cursor-pointer">
+                            <div className="border-2 border-gray-400 rounded flex flex-col w-[45%] hover:bg-slate-600 cursor-pointer" onClick={()=>{navigate('/files/add')}}>
                                 <div className="mx-auto my-12 text-gray-400 ">
                                     <Icon icon="material-symbols:drive-folder-upload-outline-rounded" className="mx-auto" width="45"/>
-                                    <p >Upload a PDF</p>
+                                    <p>Upload a PDF</p>
                                 </div>
                             </div>
-                            <div className="border-2 border-gray-400 rounded flex flex-col w-[45%] hover:bg-slate-600 cursor-pointer">
+                            <div className="border-2 border-gray-400 rounded flex flex-col w-[45%] hover:bg-slate-600 cursor-pointer" onClick={()=>{navigate('/files/add')}}>
                                 <div className="mx-auto my-12 text-gray-400 ">
                                     <Icon icon="material-symbols:create-new-folder-outline-rounded" className="mx-auto" width="45"/>
-                                    <p >Create from Scratch</p>
+                                    <p>Create from Scratch</p>
                                 </div>
                             </div>
                         </div>

@@ -6,9 +6,6 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import { AddFolderIcon, FolderIcon } from "../components/folder.components";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
-
-
-
 const exampleFolder = {
     name:"Addendum"
 }
@@ -49,6 +46,38 @@ const FileDirectory = () => {
                                         navigate('edit/'+exampleFolder.name)
                                     }}
                                 />
+                                <FolderIcon 
+                                    folder={{
+                                        name:"Loft Contract"
+                                    }}
+                                    onClick={()=>{
+                                        // navigate('edit/'+exampleFolder.name)
+                                    }}
+                                />
+                                <FolderIcon 
+                                    folder={{
+                                        name: "New Hire Agreement"
+                                    }}
+                                    onClick={()=>{
+                                        // navigate('edit/'+exampleFolder.name)
+                                    }}
+                                />
+                                <FolderIcon 
+                                    folder={{
+                                        name: "HIPA Training Letter"
+                                    }}
+                                    onClick={()=>{
+                                        // navigate('edit/'+exampleFolder.name)
+                                    }}
+                                />
+                                <FolderIcon 
+                                    folder={{
+                                        name: "Release Agreement"
+                                    }}
+                                    onClick={()=>{
+                                        navigate('edit/'+exampleFolder.name)
+                                    }}
+                                />
                             </div>
                         </div>
 
@@ -68,6 +97,22 @@ const FileDirectory = () => {
                                     folder={exampleFolder}
                                     onClick={()=>{
                                         navigate('view/'+exampleFolder.name)
+                                    }}
+                                />
+                                <FolderIcon 
+                                    folder={{
+                                        name: "2022 HIPA for Employees"
+                                    }}
+                                    onClick={()=>{
+                                        navigate('edit/'+exampleFolder.name)
+                                    }}
+                                />
+                                <FolderIcon 
+                                    folder={{
+                                        name: "105 Wharton Housing Contract"
+                                    }}
+                                    onClick={()=>{
+                                        navigate('edit/'+exampleFolder.name)
                                     }}
                                 />
                             </div>

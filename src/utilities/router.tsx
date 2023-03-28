@@ -3,12 +3,14 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 import { useRouteError } from "react-router-dom";
-import { FileCreator, FileEditor, FileViewer } from "../components/file.components";
+import { AssignFileModal, FileCreator, FileEditor, FileViewer } from "../components/file.components";
 import { Nav } from "../components/navigation.components";
 import MemberDirectory from "../pages/memberDirectory.page";
 import FileDirectory from "../pages/fileDirectory.page";
 import { Samples } from "../samples";
 import Home from "../pages/home.page";
+import GroupDirectory from "../pages/groupDirectory.page";
+import AssignedFileDirectory from "../pages/assignedFiles";
 
 
 /**Page Wrapper
@@ -67,6 +69,15 @@ export const router = createBrowserRouter([
       element: <Page><MemberDirectory /></Page>,
       errorElement:<ErrorPage />
     },
+    {
+      path: "/groups",
+      element: <Page><GroupDirectory /></Page>,
+      errorElement:<ErrorPage />
+    },
+    {
+      path: "/assigned-files",
+      element: <Page><AssignedFileDirectory /></Page>
+    }
 ]);
 
 

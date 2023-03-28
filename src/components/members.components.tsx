@@ -65,6 +65,23 @@ export const MemberCardSm = ({member,...rest}:{member:fakeMember}) => {
     )
 }
 
+export const SelectableMemberCardSm = ({member,...rest}:{member:fakeMember}) => {
+    const [selected,setSelected] = useState(false)
+
+
+    return (
+        <div className={`p-4 md:w-[40%] min-w-[400px] my-4 rounded flex ${selected?'border-2 border-blue-300 bg-slate-300':'bg-slate-400'}`} onClick={()=>selected?setSelected(false):setSelected(true)}>
+            {/* <img src={`https://robohash.org/${member.first}`} className="rounded-xl bg-white w-1/3" /> */}
+            <img src={`https://eu.ui-avatars.com/api/?name=${member.first}+${member.last}&size=150`} className="rounded-xl bg-white w-1/4" />
+            
+            <div className="px-2">
+                <p className="text-2xl font-light">{member.first} {member.last}</p>
+                <p className="lowercase">{member.first}{member.last}@gmail.com</p>
+            </div>
+        </div>
+    )
+}
+
 
 export const ItemListMemberRow = ({item,...rest}:{item:fakeMember}) => {
 
