@@ -17,6 +17,7 @@ export const FileCreator = () => {
     const [file, setFile] = useState<File|null>();
 
     const handleDrop = (acceptedFiles:any) => {
+        acceptedFiles.preventDefault()
         console.log('DROPPED')
         setFile(acceptedFiles[0]);
     };

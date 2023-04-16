@@ -3,17 +3,17 @@ import { Icon } from "@iconify/react"
 //JUNK DATA - DELETABLE
 export const fakeGroupData = [
     {
-        name:'Dev Team',
-        memberCount:12
-    },
-    {
-        name:'QA',
-        memberCount:7
-    },
-    {
-        name:'Execs',
+        name:'General Users',
         memberCount:6
-    }
+    },
+    // {
+    //     name:'QA',
+    //     memberCount:7
+    // },
+    // {
+    //     name:'Execs',
+    //     memberCount:6
+    // }
 ]
 
 export interface fakeGroup {
