@@ -15,32 +15,52 @@ export const Nav = () => {
             <nav className={`z-[150] bg-gray-700 h-screen w-1/4 p-4 absolute transition-all transform ${navOpen?'':'-translate-x-full'}`}>
                 <TitleLg>DigiForm</TitleLg>
                 <Icon icon="material-symbols:arrow-circle-left-outline-rounded" className="absolute top-2 right-2 text-white" width="32" onClick={() => setNavOpen()}/>
-                
+                <br/>
+                <hr/>
+                <br/>
                 <div>
-                    <TitleMd>Directory</TitleMd>
-                    <div className="hover:bg-gray-300">
+                    <TitleMd>Hotlinks</TitleMd>
+                    <div className="hover:bg-gray-400 p-2">
                         <Link to="/" onClick={()=>setNavOpen()}>
-                            <TitleSm>Home</TitleSm>
+                            <TitleSm>Dashboard</TitleSm>
                         </Link>
                     </div>
-                    <div className="hover:bg-gray-300">
+                    <div className="hover:bg-gray-400 p-2">
                         <Link to="/files" onClick={()=>setNavOpen()}>
-                            <TitleSm>Files</TitleSm>
+                            <TitleSm>Form Manager</TitleSm>
                         </Link>
                     </div>
-                    <div className="hover:bg-gray-300">
+                    <div className="hover:bg-gray-400 p-2">
+                        <Link to="/assigned-files" onClick={()=>setNavOpen()}>
+                            <TitleSm>Assigned Files</TitleSm>
+                        </Link>
+                    </div>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    <TitleMd>Company</TitleMd>
+                    <div className="hover:bg-gray-400 p-2">
+                        <Link to="/organization" onClick={()=>setNavOpen()}>
+                            <TitleSm>Organization</TitleSm>
+                        </Link>
+                    </div>
+                    <div className="hover:bg-gray-400 p-2">
                         <Link to="/customers" onClick={()=>setNavOpen()}>
                             <TitleSm>Members</TitleSm>
                         </Link>
                     </div>
-                    <div className="hover:bg-gray-300">
+                    <div className="hover:bg-gray-400 p-2">
                         <Link to="/groups" onClick={()=>setNavOpen()}>
                             <TitleSm>Groups</TitleSm>
                         </Link>
                     </div>
-                    <div className="hover:bg-gray-300">
-                        <Link to="/assigned-files" onClick={()=>setNavOpen()}>
-                            <TitleSm>Assigned Files</TitleSm>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    <TitleMd>Profile</TitleMd>
+                    <div className="hover:bg-gray-400 p-2">
+                        <Link to="/settings" onClick={()=>setNavOpen()}>
+                            <TitleSm>Settings</TitleSm>
                         </Link>
                     </div>
                 </div>

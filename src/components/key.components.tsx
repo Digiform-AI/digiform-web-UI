@@ -32,6 +32,59 @@ export const fakeKeyData = [
     }
 ]
 
+
+const InputField = ({field, listState, setListState}:{field:any, listState:Array<any>, setListState:any}) => {
+    const [label, setLabel] = useState(field.label)
+    const [options, setOptions] = useState(field.option)
+    const [values, setValues] = useState(field.values)
+
+    function updateList(){
+        listState.forEach(item => {
+            if(item.id === field.id){
+                item.label = label;
+                item.options = options;
+                item.values = values;
+            }
+        })
+        setListState(listState)
+    }
+
+    function deleteFromList(){
+        const newList = listState.filter(item => item.id !== field.id)
+        setListState(newList)
+    }
+
+    return (
+        <div className="border flex justify-between relative" id={field.id}>
+            <input className="text-center mx-auto border-r border-gray-500 w-1/3" 
+                onChange={(e) => {
+                    setLabel(e.target.value)
+                }}
+                onBlur={updateList}
+            />
+            <select className="text-center mx-auto w-1/3" defaultValue={'C'} 
+                onChange={(e) => {
+                    setOptions(e.target.value)
+                }}
+                onBlur={updateList}
+            >
+                <option value='T'>Text</option>
+                <option value='MS'>Multi Select</option>
+                <option value='C'>Checkbox</option>
+            </select>
+            <input className="text-center mx-auto border-l border-gray-500 w-1/3" 
+                onChange={(e) => {
+                    setValues(e.target.value)
+                }}
+                onBlur={updateList}
+            />
+            <div className="absolute left-full">
+                <Icon icon="ph:x-circle" className="my-auto" onClick={deleteFromList}/>
+            </div>
+        </div>
+    )
+}
+
 /** Modal that renders to give context on a key
  * 
  * @param className list of classes to add to this component 
@@ -40,8 +93,7 @@ export const fakeKeyData = [
  * @returns a rendered modal describing a key
  */
 export const AddKeyModal = ({className,item,toggleModal}:{className:String,item:any|null,toggleModal:any}) => {
-    const [name,setName] = useState("");
-    const [type,setType] = useState("");
+    const [fields,setFields] = useState<any>([])
 
     return (
         <div className={`absolute top-0 left-0 z-[5000] w-full h-full p-10 mx-auto backdrop-blur-md flex ${className}`}>
@@ -54,23 +106,29 @@ export const AddKeyModal = ({className,item,toggleModal}:{className:String,item:
                         toggleModal(null)
                     }}
                 />
-                <TitleXl className="p-4 w-full bg-slate-700">Add New Key</TitleXl>
+                <TitleXl className="p-4 w-full bg-slate-700">Create file from keys</TitleXl>
                 <div>
-                    <div className="w-2/5 mx-auto flex h-full">
-                        <div className="flex justify-between w-full my-8">
-                            <LabeledInput
-                                label="Key Name"
-                                state={name}
-                                setState={setName}
-                            />
-                            <LabeledInput
-                                label="Key Type"
-                                state={type}
-                                setState={setType}
-                            />
+                    <div className="border w-4/5 mx-auto my-6 rounded">
+                        <div className="border flex justify-between">
+                            <p className="text-center mx-auto border-r w-1/3">label</p>
+                            <p className="text-center mx-auto w-1/3">type</p>
+                            <p className="text-center mx-auto w-1/3 border-l">options</p>
                         </div>
+                        {
+                            fields?.map((field:any,index:BigInteger) => {
+                                return (
+                                    <InputField key={`${Date.now}-${index}`} field={field} listState={fields} setListState={setFields}/>
+                                )
+                            })
+                        }
+                        <Icon 
+                            icon='material-symbols:add-circle-rounded' width='30' className="text-slate-500 mx-auto my-2" 
+                            onClick={()=> setFields([...fields, { id:(Math.random() + Date.now()), label:'', type:'', options:'' }])} />
                     </div>
-                    <button className="border-0 rounded bg-blue-200 p-4 text-lg mx-auto font-bold block">confirm</button>
+                    <button 
+                        className="border-0 rounded bg-blue-200 p-4 text-lg mx-auto font-bold block"
+                        onClick={() => console.log(fields)}
+                    >confirm</button>
                 </div>
             </div>
         </div>

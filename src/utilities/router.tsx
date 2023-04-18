@@ -11,6 +11,9 @@ import { Samples } from "../samples";
 import Home from "../pages/home.page";
 import GroupDirectory from "../pages/groupDirectory.page";
 import AssignedFileDirectory from "../pages/assignedFiles";
+import Organization from "../pages/organization.page";
+import Settings from "../pages/settings.page";
+import Profile from "../pages/profile.page";
 
 
 /**Page Wrapper
@@ -77,6 +80,18 @@ export const router = createBrowserRouter([
     {
       path: "/assigned-files",
       element: <Page><AssignedFileDirectory /></Page>
+    },
+    {
+      path: "/organization",
+      element: <Page><Organization /></Page>
+    },
+    {
+      path: "/settings",
+      element: <Page><Settings /></Page>
+    },
+    {
+      path: "/profile",
+      element: <Page><Profile /></Page>
     }
 ]);
 

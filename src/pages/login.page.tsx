@@ -1,15 +1,13 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { TitleLg, TitleSm, TitleXl } from "../components/common.components";
+import { LabeledInput, TitleLg, TitleSm, TitleXl } from "../components/common.components";
 
-import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, UserCredential } from "firebase/auth";
+import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithEmailAndPassword, signInWithRedirect, UserCredential } from "firebase/auth";
 
 const loginWithGoogle = async () => {
     const auth = getAuth()
-    console.log("1")
 
     signInWithRedirect(auth, new GoogleAuthProvider()).then(() => {
-        console.log("2")
         getRedirectResult(auth)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access Google APIs.
@@ -31,8 +29,20 @@ const loginWithGoogle = async () => {
             const credential = GoogleAuthProvider.credentialFromError(error);
         });
     })
+}
 
-
+const loginWithUsername = async (email:string, password:string) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user)
+    })
+    .catch((error) => {
+        console.log(error)
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    });
 }
 
 
@@ -42,18 +52,73 @@ const loginWithGoogle = async () => {
  */
 const Login = () => {
     const [login,setLogin] = useState(true)
-            
+    const [username,setUsername] = useState('')
+    const [password,setPassword] = useState('')
+
     return (
         <div className="flex flex-col w-full h-full absolute top-0 left-0">
-            <div className="pt-10 w-4/5 mx-auto h-fit my-auto">
-                <div className="bg-slate-100 dark:bg-slate-700 mx-auto p-4 rounded flex justify-between">
-                    <TitleXl>Login/Sign-up</TitleXl>
-                </div>
+            <svg className="absolute w-full h-full ">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style={{stopColor:"#3cdfff", stopOpacity:1}} />
+                    <stop offset="100%" style={{stopColor:"#014462", stopOpacity:1}} />
+                    </linearGradient>
+                </defs>
+                <rect width='100%' height='100%' fill="url(#grad1)" />
+                <rect width='30%' height='30%' className="opacity-70 fill-[#03A9F4]" transform="translate(50,30) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-70 fill-[#03A9F4]" transform="translate(70,30) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-40 fill-[#03A9F4]" transform="translate(550,120) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-40 fill-[#03A9F4]" transform="translate(570,120) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-40 fill-[#03A9F4]" transform="translate(1050,210) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-40 fill-[#03A9F4]" transform="translate(1070,210) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-40 fill-[#03A9F4]" transform="translate(1550,300) rotate(30)" />
+                <rect width='30%' height='30%' className="opacity-40 fill-[#03A9F4]" transform="translate(1570,300) rotate(30)" />
+                <rect width='100%' height='100%' fill="url(#grad1)" className="opacity-50"/>
+            </svg>
 
-                <button className="shadow rounded p-4 flex my-4 mx-auto"
-                    onClick={loginWithGoogle}
-                
-                > Sign-in with Google <Icon icon="logos:google-icon"  className="ml-2 my-auto" width="22"/></button>
+
+            <div className="md:w-[55%] lg:w-[35%] mx-auto my-auto border z-50 bg-white rounded-xl relative">
+                <p className="w-min mx-auto p-6 font-bold text-2xl">Login</p>
+
+                <div className="p-8">
+                    <div className="mx-auto">
+                        <div className="">
+                            <p className="font-lato ">Username</p>
+                            <div className="flex border-b p-2">
+                                <Icon icon="mdi:user-outline" className="my-auto text-gray-400" width='20'/>
+                                <input type="text" className="outline-0 pl-2" placeholder="Type your username" value={username} onChange={((e)=>setUsername(e.target.value))}/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div className="">
+                            <p className="font-lato ">Password</p>
+                            <div className="flex border-b p-2">
+                                <Icon icon="mdi:lock" className="my-auto text-gray-400" width='20'/>
+                                <input type="text" className="outline-0 pl-2" placeholder="Type your password" value={password} onChange={((e)=>setPassword(e.target.value))}/>
+                            </div>
+                            <p className="float-right text-gray-500 hover:underline cursor-pointer">forgot password?</p>
+                        </div>
+                        <br/>
+                        <br/>
+                        <button onClick={()=> loginWithUsername(username,password)} className="rounded-3xl w-4/5 mx-auto block py-2 bg-gradient-to-r from-indigo-500 to-gray-200 hover:scale-105 transform transition-all">login</button>
+                        <br/>
+
+                        <p className="text-center font-lato p-3 text-gray-600">or sign in using</p>
+                        <div className="flex justify-around w-1/3 mx-auto">
+                            <Icon icon="logos:google-icon"  className="my-auto cursor-pointer" width="26" onClick={loginWithGoogle}/>
+                            <Icon icon="logos:facebook"  className="my-auto cursor-pointer" width="30"/>
+                            <Icon icon="ps:apple"  className="my-auto cursor-pointer" width="24"/>
+                        </div>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p className="text-center text-gray-600">don't have an account?</p>
+                        <p className="text-center text-gray-600">email your app administrator for an account</p>
+
+                    </div>
+                </div>
             </div>
         </div>
     )

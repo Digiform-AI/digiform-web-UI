@@ -12,7 +12,6 @@ import { Provider } from 'react-redux';
 import { Worker } from '@react-pdf-viewer/core';
 import Login from './pages/login.page';
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Icon } from '@iconify/react';
 

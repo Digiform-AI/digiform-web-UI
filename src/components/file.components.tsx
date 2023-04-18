@@ -53,11 +53,10 @@ export const FileCreator = () => {
                 </div>
 
                 <div className="flex mt-8">
-                    <div className="w-full sm:w-1/2 md:w-1/5 transition-width rounded-md overflow-hidden">
-                        <ItemList title="Keys" items={[]} AddItemModal={AddKeyModal} ViewItemModal={null} ItemComponent={ItemListKeyRow}/>
-
+                    <div className="w-1/2 transition-width rounded-md overflow-hidden">
+                        <ItemList title="Create New" items={[]} AddItemModal={AddKeyModal} ViewItemModal={null} ItemComponent={ItemListKeyRow}/>
                     </div>
-                    <input id="file-upload" type="file" className="hidden" onChange={handleSelect}/>
+                    <input id="file-upload" type="file" className="hidden w-1/2" onChange={handleSelect}/>
                     {
                         submitted?(
                             <div 
@@ -70,7 +69,7 @@ export const FileCreator = () => {
                                     console.log('File(s) in drop zone');
                                     ev.preventDefault();
                                 }}
-                                className="transition-all cursor-pointer w-full px-4 h-[60vh] rounded-3xl bg-slate-400 bg-opacity-10 border-4 border-slate-600 hover:bg-opacity-25 mx-4 flex"
+                                className="transition-all cursor-pointer w-1/2 px-4 h-[60vh] rounded-3xl bg-slate-400 bg-opacity-10 border-4 border-slate-600 hover:bg-opacity-25 mx-4 flex"
                             >
                                 <div className="mx-auto my-auto">
                                     <Icon icon="twemoji:check-mark-button" width="120" className="text-slate-300 mx-auto"/>
