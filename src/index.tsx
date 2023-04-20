@@ -6,7 +6,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import store from './utilities/redux.storage';
 import { router } from './utilities/router';
 import { Provider } from 'react-redux';
 import { Worker } from '@react-pdf-viewer/core';
@@ -28,15 +27,15 @@ const app = initializeApp(firebaseConfig);
 
 const App = () => {
   const auth = getAuth(app);
-  const [loggedIn,setLoggedIn] = useState(false)
-  const [loading,setLoading] = useState(true)
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   onAuthStateChanged(auth, user => {
     setLoading(true)
     if (user) {
       setLoggedIn(true)
       setLoading(false)
-    } 
+    }
     else {
       setLoggedIn(false)
       setLoading(false)
@@ -46,18 +45,18 @@ const App = () => {
   return (
     <>
       {
-        loading?(
+        loading ? (
           <>
             <div className='w-full h-full absolute top-0 left-0 flex flex-col'>
-              <Icon icon="line-md:loading-twotone-loop" className='mx-auto my-auto' width="100"/>
+              <Icon icon="line-md:loading-twotone-loop" className='mx-auto my-auto' width="100" />
             </div>
           </>
-        ):(
+        ) : (
           <>
             {
-              loggedIn?(
+              loggedIn ? (
                 <RouterProvider router={router} />
-              ):(
+              ) : (
                 <Login />
               )
             }
@@ -72,10 +71,8 @@ const App = () => {
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
-        <App />
-      </Worker>
-    </Provider>
+    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+      <App />
+    </Worker>
   </React.StrictMode>
 );
