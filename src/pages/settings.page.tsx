@@ -14,14 +14,26 @@ const Settings = () => {
 
     useEffect(() => {
         async function getUser() {
-            const res = await axios.post('https://v2n9g5nv1j.execute-api.us-east-1.amazonaws.com/prod/query', {
-                resource: 'Users',
-                command: 'GET',
-                request: {
-                    email: "tuser@gmail.com"
-                }
+            await fetch('https://fweugbw3k7.execute-api.us-east-1.amazonaws.com/prod/query', {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Access-Control-Allow-Methods': '*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': '*',
+                },
+                body: JSON.stringify({
+                    command: 'GET',
+                    resource: 'Users',
+                    request: {
+                        email: 'tuser@gmail.com'
+                    }
+                }),
             })
-            console.log(res)
+                .then((out) => console.log(out))
+                .catch((e) => console.log(e))
         }
         getUser()
     })
