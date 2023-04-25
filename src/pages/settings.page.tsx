@@ -19,10 +19,8 @@ const Settings = () => {
                 mode: "cors",
                 cache: "no-cache",
                 headers: {
-                    "Content-Type": "application/json",
-                    'Access-Control-Allow-Methods': '*',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Headers': '*',
+                    "Content-Type": "text/plain",
+                    'Accept': '*/*',
                 },
                 body: JSON.stringify({
                     command: 'GET',
